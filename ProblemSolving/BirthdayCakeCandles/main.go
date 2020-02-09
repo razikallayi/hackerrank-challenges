@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"io"
 	"strings"
 )
@@ -11,25 +10,23 @@ import (
 func birthdayCakeCandles(ar []int32) int32 {
 	var max int32 = 0
 	var count int32 = 0
-	var i int32 = 0
-	for ; i < int32(len(ar)); i++ {
-		if max != 0 || ar[i] > max {
+	for i := 0; i < len(ar); i++ {
+		if max == 0 || ar[i] > max {
 			max = ar[i]
 		}
 	}
-	fmt.Println(max)
-	i = 0
-	for ; i < int32(len(ar)); i++ {
-		if ar[i] == max {
+
+	for j := 0; j < len(ar); j++ {
+		if ar[j] == max {
 			count++
 		}
 	}
-	fmt.Println(count)
+
 	return count
 }
 
 func main() {
-	birthdayCakeCandles([]int32{3, 2, 1, 3})
+	birthdayCakeCandles([]int32{18, 90, 90, 13, 90, 75, 90, 8, 90, 43})
 	// reader := bufio.NewReaderSize(os.Stdin, 1024 * 1024)
 
 	// stdout, err := os.Create(os.Getenv("OUTPUT_PATH"))
